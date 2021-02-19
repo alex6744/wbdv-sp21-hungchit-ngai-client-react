@@ -25,6 +25,9 @@ export default class CourseTable
                         </th>
 
                     </thead>
+                    <tbody>
+
+                    </tbody>
                 </table>
             </div>
         )
