@@ -1,17 +1,21 @@
-import logo from './logo.svg';
+
+import CourseManager from "./components/course-manager";
 import './App.css';
 import {BrowserRouter,Route} from "react-router-dom";
+import Home from "./components/home"
+
 
 function App() {
   return (
       <BrowserRouter>
           <div className="container-fluid">
               <Route path="/" exact={true}>
-                  {/*<Home/>*/}
+                  <Home/>
               </Route>
               <Route path="/courses">
-                  {/*<CourseManager/>*/}
+                  <CourseManager/>
               </Route>
+
           </div>
       </BrowserRouter>
   );
