@@ -29,6 +29,12 @@ class CourseManager extends React.Component{
 
                     </div>
                 </nav>
+
+
+                <Route path="/courses/table">
+                    <CourseTable/>
+
+                </Route>
             </div>
         )
     }
