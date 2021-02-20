@@ -6,7 +6,10 @@ import {Link} from "react-router-dom";
 
 export default class CourseTable
     extends React.Component {
-
+    constructor(props) {
+        super(props);
+        console.log(props)
+    }
 
 
     render() {
@@ -14,19 +17,31 @@ export default class CourseTable
             <div>
                 <table className="table">
                     <thead>
-                        <th >Title</th>
-                        <th >Owned by</th>
-                        <th className="d-none d-lg-table-cell" >Last modified</th>
-                        <th >
-                            <i className="fas fa-2x fa-th float-right"></i>
-                            <i className="fas fa-2x fa-th float-right"></i>
-                            <i className="fas fa-2x fa-th float-right"></i>
+                        <tr>
+                            <th >Title</th>
+                            <th >Owned by</th>
+                            <th className="d-none d-lg-table-cell" >Last modified</th>
+                            <th >
+                                <i className="fas fa-2x fa-th float-right"></i>
+                                <i className="fas fa-2x fa-th float-right"></i>
+                                <i className="fas fa-2x fa-th float-right"></i>
 
-                        </th>
-
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <CourseRow/>
+                    {
+                        this.props.courses.map((course,ndx)=>
+                        <CourseRow
+                            key={ndx}
+                            course={course}
+                            title={course.title}
+                            owner={course.owner}
+                            lastModified={course.lastModified}
+
+                        />)
+                    }
+
                     </tbody>
                 </table>
             </div>
