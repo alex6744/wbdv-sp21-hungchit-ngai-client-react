@@ -16,7 +16,7 @@ const CourseRow = (
                     {title}
                 </Link>
             </td>
-            <td>{owner}</td>
+            <td className="d-none d-md-table-cell">{owner}</td>
             <td className="d-none d-lg-table-cell">{lastModified}</td>
             <td>
                 <i className="fas fa-check"></i>
