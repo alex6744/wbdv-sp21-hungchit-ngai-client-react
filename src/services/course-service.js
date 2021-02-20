@@ -31,8 +31,8 @@ export const updateCourse = (courseId, course) =>
         .then(response => response.json())
 
 export default {
-    findAllCourses,
+    findAllCourses:findAllCourses,
     deleteCourse: deleteCourse,
-    createCourse,
+    createCourse:createCourse,
     updateCourse: updateCourse
 }
