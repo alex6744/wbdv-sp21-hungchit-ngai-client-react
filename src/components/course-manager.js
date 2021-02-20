@@ -1,9 +1,11 @@
+
 import React from 'react'
 import CourseTable from "./course-table/course-table";
 import CourseGrid from "./course-grid/course-grid";
 import CourseEditor from "./course-editor/course-editor";
 import {Link, Route} from "react-router-dom";
 import courseService from "../services/course-service";
+import "./course-manager.css"
 
 class CourseManager extends React.Component{
     state = {
@@ -59,11 +61,11 @@ class CourseManager extends React.Component{
                             <div className="col-10 col-lg-7">
                                 <input className="form-control"/>
                             </div>
-                            <div className="col-1">
-                               <Link to="#">
+                            <div className="col-1 ">
+
                                     <i onClick={this.addCourse}
                                        className="fas fa-plus-circle fa-2x"></i>
-                               </Link>
+
 
                             </div>
 
@@ -78,13 +80,20 @@ class CourseManager extends React.Component{
 
                 </Route>
                 <Route path="/courses/grid">
-                    <CourseGrid/>
+                    <CourseGrid
+                        deleteCourse={this.deleteCourse}
+                        courses={this.state.courses}/>
 
                 </Route>
                 <Route path="/courses/editor">
                     <CourseEditor/>
 
                 </Route>
+                <div className="bottom-right-position">
+
+                        <i className="fa fa-plus-circle fa-3x"></i>
+
+                </div>
             </div>
         )
     }
