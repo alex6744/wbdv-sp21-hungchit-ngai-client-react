@@ -6,15 +6,22 @@ import {Route} from "react-router-dom";
 import courseService,{findAllCourses,deleteCourses} from "../services/course-service";
 
 class CourseManager extends React.Component{
-
+    state = {
+        courses: [
+            {title: "CS4321", owner: "frank", lastModified: "2/9/15"},
+            {title: "CS5432", owner: "greg", lastModified: "3/8/25"},
+            {title: "CS6543", owner: "herbert", lastModified: "4/7/35"},
+            {title: "CS7654", owner: "ian", lastModified: "5/6/45"},
+        ]
+    }
     render() {
         return(
             <div>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <div className="container-fluid">
 
-                            <div class="col-1">
-                                <i class="fas fa-bars fa-2x"></i>
+                            <div className="col-1">
+                                <i className="fas fa-bars fa-2x"></i>
                             </div>
 
                             <div className="col-3 	d-none d-lg-block">
