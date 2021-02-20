@@ -22,9 +22,12 @@ export default class CourseTable
                             <th >Owned by</th>
                             <th className="d-none d-lg-table-cell" >Last modified</th>
                             <th >
-                                <i className="fas fa-2x fa-th float-right"></i>
-                                <i className="fas fa-2x fa-th float-right"></i>
-                                <i className="fas fa-2x fa-th float-right"></i>
+                                <i className="fas fa-2x fa-folder "></i>
+                                <i className="fas fa-2x fa-sort "></i>
+                                <Link to="/courses/grid">
+                                    <i className="fas fa-2x fa-th float-right"></i>
+                                </Link>
+
 
                             </th>
                         </tr>
