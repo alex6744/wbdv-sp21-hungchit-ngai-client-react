@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 const CourseRow = (
-    { course,
+    {  ndx,
+       course,
        title,
        lastModified,
        owner
@@ -10,10 +11,12 @@ const CourseRow = (
     return (
         <tr>
             <td>
-              wwwww
+                <Link to="/courses/editor">
+                    {title}
+                </Link>
             </td>
-            <td>w</td>
-            <td className="d-none d-lg-table-cell">wlaw</td>
+            <td>{owner}</td>
+            <td className="d-none d-lg-table-cell">{lastModified}</td>
             <td>
                 <i className="fas fa-check"></i>
                 <i  className="fas fa-trash"></i>
