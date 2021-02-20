@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 const CourseRow = (
-    {  ndx,
+    {  deleteCourse,
+        ndx,
        course,
        title,
        lastModified,
@@ -19,7 +20,7 @@ const CourseRow = (
             <td className="d-none d-lg-table-cell">{lastModified}</td>
             <td>
                 <i className="fas fa-check"></i>
-                <i  className="fas fa-trash"></i>
+                <i onClick={()=>deleteCourse(course)} className="fas fa-trash"></i>
                 <i className="fas fa-edit"></i>
             </td>
         </tr>
