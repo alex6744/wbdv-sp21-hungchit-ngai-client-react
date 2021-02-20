@@ -2,17 +2,27 @@ import React from 'react'
 import CourseTable from "./course-table/course-table";
 import CourseGrid from "./course-grid/course-grid";
 import CourseEditor from "./course-editor/course-editor";
-import {Route} from "react-router-dom";
-import courseService,{findAllCourses,deleteCourses} from "../services/course-service";
+import {Link, Route} from "react-router-dom";
+import courseService from "../services/course-service";
 
 class CourseManager extends React.Component{
     state = {
-        courses: [
-            {title: "CS4321", owner: "frank", lastModified: "2/9/15"},
-            {title: "CS5432", owner: "greg", lastModified: "3/8/25"},
-            {title: "CS6543", owner: "herbert", lastModified: "4/7/35"},
-            {title: "CS7654", owner: "ian", lastModified: "5/6/45"},
-        ]
+        courses: []
+    }
+    componentDidMount=()=> {
+        courseService.findAllCourses()
+            .then(courses => this.setState({courses}))
+    }
+
+    addCourse=()=>{
+        const newCourse = {
+            title: "New Course",
+            owner: "New Owner",
+            lastModified: "Never"
+
+        }
+        this.state.courses.push(newCourse)
+        this.setState(this.state)
     }
     render() {
         return(
@@ -28,10 +38,14 @@ class CourseManager extends React.Component{
                                 <h4>Course Manager</h4>
                             </div>
                             <div className="col-10 col-lg-7">
-                                <input class="form-control"/>
+                                <input className="form-control"/>
                             </div>
                             <div className="col-1">
-                                <i className="fas fa-plus-circle fa-2x"></i>
+                               <Link to="#">
+                                    <i onClick={this.addCourse}
+                                       className="fas fa-plus-circle fa-2x"></i>
+                               </Link>
+
                             </div>
 
                     </div>
@@ -39,7 +53,8 @@ class CourseManager extends React.Component{
 
 
                 <Route path="/courses/table">
-                    <CourseTable/>
+                    <CourseTable
+                        courses={this.state.courses}/>
 
                 </Route>
                 <Route path="/courses/grid">
