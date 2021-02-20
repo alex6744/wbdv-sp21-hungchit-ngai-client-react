@@ -12,11 +12,11 @@ export default class CourseTable
     render() {
         return(
             <div>
-                <table class="table">
+                <table className="table">
                     <thead>
                         <th >Title</th>
                         <th >Owned by</th>
-                        <th class="d-none d-lg-table-cell" >Last modified</th>
+                        <th className="d-none d-lg-table-cell" >Last modified</th>
                         <th >
                             <i className="fas fa-2x fa-th float-right"></i>
                             <i className="fas fa-2x fa-th float-right"></i>

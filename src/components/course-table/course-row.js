@@ -13,7 +13,7 @@ const CourseRow = (
               wwwww
             </td>
             <td>w</td>
-            <td class="d-none d-lg-table-cell">wlaw</td>
+            <td className="d-none d-lg-table-cell">wlaw</td>
             <td>
                 <i className="fas fa-check"></i>
                 <i  className="fas fa-trash"></i>
