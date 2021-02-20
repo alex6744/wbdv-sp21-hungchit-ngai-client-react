@@ -30,7 +30,18 @@ export const updateCourse = (courseId, course) =>
     })
         .then(response => response.json())
 
+export const findCourseById=(courseId)=>
+    fetch(`${COURSES_URL}/${courseId}`,{
+        method:'GET',
+        body:JSON.stringify(courseId),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+
+
 export default {
+    findCourseById:findCourseById,
     findAllCourses:findAllCourses,
     deleteCourse: deleteCourse,
     createCourse:createCourse,
