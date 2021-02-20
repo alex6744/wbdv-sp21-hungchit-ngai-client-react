@@ -21,8 +21,27 @@ class CourseManager extends React.Component{
             lastModified: "Never"
 
         }
-        this.state.courses.push(newCourse)
-        this.setState(this.state)
+        courseService.createCourse(newCourse)
+            .then(course=>this.setState(
+                (prevState)=>({
+                    ...prevState,
+                    courses:[
+                        ...prevState.courses,
+                        course
+                    ]
+                })
+            ))
+
+    }
+    deleteCourse=(courseToDelete)=>{
+        courseService.deleteCourse(courseToDelete._id)
+            .then(status=>{
+                this.setState((prevState)=>({
+                   ...prevState,
+                   courses:prevState.courses.filter
+                     (course=>course!==courseToDelete)
+                }))
+            })
     }
     render() {
         return(
@@ -54,6 +73,7 @@ class CourseManager extends React.Component{
 
                 <Route path="/courses/table">
                     <CourseTable
+                        deleteCourse={this.deleteCourse}
                         courses={this.state.courses}/>
 
                 </Route>
