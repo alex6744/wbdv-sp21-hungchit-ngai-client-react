@@ -16,7 +16,7 @@ export default class CourseTable
                     <thead>
                         <th >Title</th>
                         <th >Owned by</th>
-                        <th >Last modified</th>
+                        <th class="d-none d-lg-table-cell" >Last modified</th>
                         <th >
                             <i className="fas fa-2x fa-th float-right"></i>
                             <i className="fas fa-2x fa-th float-right"></i>
@@ -26,7 +26,7 @@ export default class CourseTable
 
                     </thead>
                     <tbody>
-
+                        <CourseRow/>
                     </tbody>
                 </table>
             </div>
