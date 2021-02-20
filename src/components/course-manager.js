@@ -35,6 +35,10 @@ class CourseManager extends React.Component{
                     <CourseTable/>
 
                 </Route>
+                <Route path="/courses/grid">
+                    <CourseGrid/>
+
+                </Route>
             </div>
         )
     }
