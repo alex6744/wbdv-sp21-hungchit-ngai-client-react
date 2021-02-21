@@ -45,6 +45,13 @@ class CourseManager extends React.Component{
                 }))
             })
     }
+    updateCourse=(course)=>{
+        courseService.updateCourse(course._id,course)
+            .then(status=>this.setState((prevState)=>({
+                ...prevState,
+                course:prevState.courses.map((c)=>c._id===course._id?course:c)
+            })))
+    }
     render() {
         return(
             <div>
@@ -75,12 +82,14 @@ class CourseManager extends React.Component{
 
                 <Route path="/courses/table">
                     <CourseTable
+                        updateCourse={this.updateCourse}
                         deleteCourse={this.deleteCourse}
                         courses={this.state.courses}/>
 
                 </Route>
                 <Route path="/courses/grid">
                     <CourseGrid
+                        updateCourse={this.updateCourse}
                         deleteCourse={this.deleteCourse}
                         courses={this.state.courses}/>
 
