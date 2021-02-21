@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import CourseCard from "./course-card";
 import "./course-grid.css"
 
-const CourseGrid=({courses,deleteCourse})=>
+const CourseGrid=({courses,deleteCourse,updateCourse})=>
     <div className="container-fluid">
 
         <div className="row">
