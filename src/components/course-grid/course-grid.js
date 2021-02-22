@@ -7,10 +7,10 @@ const CourseGrid=({courses,deleteCourse,updateCourse})=>
     <div className="container-fluid">
 
         <div className="row">
-            <div className="col-5 d-none d-lg-block">
+            <div className="col-5 d-none d-md-block">
                 Recent Documents
             </div>
-            <div className="col-3 d-none d-lg-block">
+            <div className="col-3 d-none d-md-block">
                 Owned by me
                 <i className="fas fa-sort-down fa-2x "></i>
 
