@@ -8,3 +8,16 @@
 .position-floder{
 
 }
+.position-check{
+    position: absolute;
+    top: 10px;
+    right: 35px;
+    color:#67ff67;
+
+}
+.position-time{
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     color:red;
+ }
