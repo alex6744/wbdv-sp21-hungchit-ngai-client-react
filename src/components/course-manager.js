@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React,{useState} from 'react'
 import CourseTable from "./course-table/course-table";
 import CourseGrid from "./course-grid/course-grid";
 import CourseEditor from "./course-editor/course-editor";
@@ -9,20 +9,23 @@ import "./course-manager.css"
 
 class CourseManager extends React.Component{
     state = {
-        courses: []
+        courses: [],
+        setNewTitle:[]
     }
+
     componentDidMount=()=> {
         courseService.findAllCourses()
             .then(courses => this.setState({courses}))
     }
 
-    addCourse=()=>{
-        const newCourse = {
-            title: "New Course",
+    addCourse=(courseTitle)=>{
+       const newCourse = {
+            title: courseTitle,
             owner: "New Owner",
             lastModified: "Never"
 
         }
+
         courseService.createCourse(newCourse)
             .then(course=>this.setState(
                 (prevState)=>({
@@ -34,7 +37,9 @@ class CourseManager extends React.Component{
                 })
             ))
 
+
     }
+
     deleteCourse=(courseToDelete)=>{
         courseService.deleteCourse(courseToDelete._id)
             .then(status=>{
@@ -49,8 +54,9 @@ class CourseManager extends React.Component{
         courseService.updateCourse(course._id,course)
             .then(status=>this.setState((prevState)=>({
                 ...prevState,
-                course:prevState.courses.map((c)=>c._id===course._id?course:c)
+                courses:prevState.courses.map((c)=>c._id===course._id?course:c)
             })))
+
     }
     render() {
         return(
@@ -66,11 +72,19 @@ class CourseManager extends React.Component{
                                 <h4>Course Manager</h4>
                             </div>
                             <div className="col-10 col-lg-7">
-                                <input className="form-control"/>
+                                <input
+
+                                    placeholder="New Course Name"
+                                    onChange={(event) =>{
+                                        this.state.setNewTitle=(event.target.value)}}
+                                    className="form-control class-title"/>
                             </div>
                             <div className="col-1 ">
 
-                                    <i onClick={this.addCourse}
+                                    <i onClick={()=>{{
+
+                                        return this.addCourse(this.state.setNewTitle)
+                                    }}}
                                        className="fas fa-plus-circle fa-2x"></i>
 
 
@@ -82,6 +96,7 @@ class CourseManager extends React.Component{
 
                 <Route path="/courses/table">
                     <CourseTable
+
                         updateCourse={this.updateCourse}
                         deleteCourse={this.deleteCourse}
                         courses={this.state.courses}/>
@@ -94,13 +109,13 @@ class CourseManager extends React.Component{
                         courses={this.state.courses}/>
 
                 </Route>
-                <Route path="/courses/editor">
-                    <CourseEditor/>
+                <Route path="/courses/editor"
+                       render={(props) => <CourseEditor {...props}/>}>
 
                 </Route>
                 <div className="bottom-right-position">
 
-                        <i className="fa fa-plus-circle fa-3x"></i>
+                        <i onClick={()=>this.addCourse(this.setNewTitle)} className="fa fa-plus-circle fa-3x"></i>
 
                 </div>
             </div>
