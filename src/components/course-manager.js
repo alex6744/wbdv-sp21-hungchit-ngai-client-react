@@ -63,7 +63,7 @@ class CourseManager extends React.Component{
     render() {
         return(
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light container-fluid navbar-style">
                     <div className="container-fluid">
 
                             <div className="col-1">
@@ -90,15 +90,16 @@ class CourseManager extends React.Component{
                                         this.setState({input:""})
                                         return this.addCourse(this.state.setNewTitle)
                                     }}}
-                                       className="fas fa-plus-circle fa-2x"></i>
+                                       className="fas fa-plus-circle fa-2x color-red"></i>
 
 
                             </div>
 
                     </div>
                 </nav>
-
-
+                <br/>
+                <br/>
+                <br/>
                 <Route path="/courses/table">
                     <CourseTable
 
@@ -118,7 +119,8 @@ class CourseManager extends React.Component{
                        render={(props) => <CourseEditor {...props}/>}>
 
                 </Route>
-                <div className="bottom-right-position">
+
+                <div className="bottom-right-position color-red">
 
                         <i onClick={()=>this.addCourse(this.setNewTitle)} className="fa fa-plus-circle fa-3x"></i>
 
