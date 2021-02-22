@@ -10,7 +10,8 @@ import "./course-manager.css"
 class CourseManager extends React.Component{
     state = {
         courses: [],
-        setNewTitle:[]
+        setNewTitle:"",
+        input:""
     }
 
     componentDidMount=()=> {
@@ -58,6 +59,7 @@ class CourseManager extends React.Component{
             })))
 
     }
+
     render() {
         return(
             <div>
@@ -76,13 +78,16 @@ class CourseManager extends React.Component{
 
                                     placeholder="New Course Name"
                                     onChange={(event) =>{
-                                        this.state.setNewTitle=(event.target.value)}}
-                                    className="form-control class-title"/>
+                                              this.setState({input:event.target.value})
+                                       return  this.state.setNewTitle=(event.target.value)}}
+
+                                    className="form-control class-title"
+                                    value={this.state.input}/>
                             </div>
                             <div className="col-1 ">
 
-                                    <i onClick={()=>{{
-
+                                    <i onClick={(event)=>{{
+                                        this.setState({input:""})
                                         return this.addCourse(this.state.setNewTitle)
                                     }}}
                                        className="fas fa-plus-circle fa-2x"></i>
