@@ -1,22 +1,17 @@
 import React from 'react'
 import {Link} from "react-router-dom";
 
-const CourseEditor =()=>
+const CourseEditor =({history})=>
+
     <div className="container-fluid">
-        <h2>
-            <Link  to="/courses/table">
-                <i className="fas fa-arrow-left"></i>
-            </Link>
-            Course Editor
-            {/*<i onClick={()=>props.history.goBack()}*/}
-            {/*   className="fas fa-times float-right"></i>*/}
-        </h2>
+
         <div>
             <div className="row ">
                 <div className="col-1">
-                    <a href="../index.html">
-                        <i className=" fa fa-times fa-2x color-white"></i>
-                    </a>
+
+                        <i onClick={() => {history.goBack()}}
+                            className=" fa fa-times fa-2x color-white"></i>
+
                 </div>
                 <div className="col-3 coursename-position ">
 
