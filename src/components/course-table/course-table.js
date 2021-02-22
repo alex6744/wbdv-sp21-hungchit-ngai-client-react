@@ -15,9 +15,10 @@ export default class CourseTable
     render() {
         return(
             <div>
-                <table className="table">
+                <table style={{width: "100%"}} className="table">
+
                     <thead>
-                        <tr>
+                        <tr >
                             <th >Title</th>
                             <th className="d-none d-sm-table-cell">Owned by</th>
                             <th className="d-none d-lg-table-cell" >Last modified</th>
