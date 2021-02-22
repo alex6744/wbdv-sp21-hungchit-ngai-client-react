@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import {Link} from "react-router-dom";
 const CourseRow = (
-    {  updateCourse,
+    {
+        updateCourse,
         deleteCourse,
         ndx,
        course,
@@ -19,6 +20,7 @@ const CourseRow = (
             title: newTitle
         }
         updateCourse(newCourse)
+
     }
 
     return (
@@ -38,7 +40,7 @@ const CourseRow = (
                         className="form-control"/>
                 }
             </td>
-            <td className="d-none d-md-table-cell">{owner}</td>
+            <td className="d-none d-sm-table-cell">{owner}</td>
             <td className="d-none d-lg-table-cell">{lastModified}</td>
             <td>
                 <i onClick={() => deleteCourse(course)} className="fas fa-trash"></i>
