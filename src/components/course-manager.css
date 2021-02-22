@@ -1,7 +1,16 @@
 .bottom-right-position{
+
     position: fixed;
     right: 25px;
     bottom: 25px;
     z-index: 1;
 
+}
+.color-red{
+    color: red;
+}
+
+.navbar-style{
+
+    position: fixed;
 }
