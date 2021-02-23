@@ -4,6 +4,7 @@ export const findAllCourses = () =>
     fetch(COURSES_URL)
         .then(response => response.json())
 
+
 export const deleteCourse = (courseId) =>
     fetch(`${COURSES_URL}/${courseId}`, {
         method: 'DELETE'
@@ -31,13 +32,8 @@ export const updateCourse = (courseId, course) =>
         .then(response => response.json())
 
 export const findCourseById=(courseId)=>
-    fetch(`${COURSES_URL}/${courseId}`,{
-        method:'GET',
-        body:JSON.stringify(courseId),
-        headers: {
-            'content-type': 'application/json'
-        }
-    })
+    fetch(`${COURSES_URL}/${courseId}`)
+        .then(response => response.json())
 
 
 export default {
@@ -45,5 +41,7 @@ export default {
     findAllCourses:findAllCourses,
     deleteCourse: deleteCourse,
     createCourse:createCourse,
-    updateCourse: updateCourse
+    updateCourse: updateCourse,
+
+
 }
