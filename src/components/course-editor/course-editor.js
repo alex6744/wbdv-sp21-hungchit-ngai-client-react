@@ -10,7 +10,8 @@ const CourseEditor =({history})=>
                 <div className="col-1">
 
                         <i onClick={() => {history.goBack()}}
-                            className=" fa fa-times fa-2x color-white"></i>
+                            className=" fa fa-times fa-2x color-white"
+                            title="go back last page"></i>
 
                 </div>
                 <div className="col-3 coursename-position ">
