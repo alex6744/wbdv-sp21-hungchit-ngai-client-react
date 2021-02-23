@@ -3,7 +3,7 @@
     position: fixed;
     right: 25px;
     bottom: 25px;
-    z-index: 1;
+    z-index:3;
 
 }
 .color-red{
@@ -13,4 +13,5 @@
 .navbar-style{
 
     position: fixed;
+    z-index: 2;
 }
