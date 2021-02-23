@@ -10,16 +10,20 @@ import "./course-manager.css"
 class CourseManager extends React.Component{
     state = {
         courses: [],
-        setNewTitle:"",
-        input:""
+        setNewTitle:"new Course",
+        input:"",
+
     }
 
     componentDidMount=()=> {
+
         courseService.findAllCourses()
             .then(courses => this.setState({courses}))
+
     }
 
     addCourse=(courseTitle)=>{
+
        const newCourse = {
             title: courseTitle,
             owner: "New Owner",
@@ -88,9 +92,13 @@ class CourseManager extends React.Component{
 
                                     <i onClick={(event)=>{{
                                         this.setState({input:""})
-                                        return this.addCourse(this.state.setNewTitle)
+
+                                        this.addCourse(this.state.setNewTitle)
+                                        this.setState({setNewTitle:"new Course"})
+
                                     }}}
-                                       className="fas fa-plus-circle fa-2x color-red"></i>
+                                       className="fas fa-plus-circle fa-2x color-red"
+                                        title="add course"></i>
 
 
                             </div>
@@ -122,7 +130,13 @@ class CourseManager extends React.Component{
 
                 <div className="bottom-right-position color-red">
 
-                        <i onClick={()=>this.addCourse(this.setNewTitle)} className="fa fa-plus-circle fa-3x"></i>
+                        <i onClick={()=> {  this.setState({input:""})
+
+                            this.addCourse(this.state.setNewTitle)
+                            this.setState({setNewTitle:"new Course"})
+                        }}
+                           className="fa fa-plus-circle fa-3x"
+                            title="add course"></i>
 
                 </div>
             </div>
