@@ -36,7 +36,7 @@ const CourseRow = (
                     editing &&
                     <input
                         onChange={(event) => setNewTitle(event.target.value)}
-                        value={newTitle}
+                        value={title}
                         className="form-control"/>
                 }
             </td>
