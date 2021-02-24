@@ -33,7 +33,7 @@ const CourseCard=({course,deleteCourse,updateCourse})=>{
                     editing &&
                     <input className="form-control"
                            onChange={(event) =>{ setNewTitle(event.target.value)}}
-                           value={course.title}
+                           value={newTitle}
                             />
                 }
                 {/*<i onClick={()=>deleteCourse(course)} className="fas fa-trash"></i>*/}

@@ -36,7 +36,7 @@ const CourseRow = (
                     editing &&
                     <input
                         onChange={(event) => setNewTitle(event.target.value)}
-                        value={title}
+                        value={newTitle}
                         className="form-control"/>
                 }
             </td>
@@ -48,7 +48,9 @@ const CourseRow = (
                 {editing && <i onClick={() => {setEditing(false)
                                 deleteCourse(course)
                 }} className="fas fa-trash"></i>}
-                {!editing && <i onClick={() => setEditing(true)} className="fas fa-edit"></i>}
+                {!editing && <i onClick={() => { setNewTitle(title)
+                    setEditing(true)
+                }} className="fas fa-edit"></i>}
 
             </td>
         </tr>
