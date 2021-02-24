@@ -12,7 +12,7 @@ class CourseManager extends React.Component{
         courses: [],
         setNewTitle:"new Course",
         input:"",
-
+        c:""
     }
 
     componentDidMount=()=> {
@@ -21,6 +21,7 @@ class CourseManager extends React.Component{
             .then(courses => this.setState({courses}))
 
     }
+
 
     addCourse=(courseTitle)=>{
 
@@ -51,7 +52,7 @@ class CourseManager extends React.Component{
                 this.setState((prevState)=>({
                    ...prevState,
                    courses:prevState.courses.filter
-                     (course=>course!==courseToDelete)
+                     (course=>course._id!==courseToDelete._id)
                 }))
             })
     }
@@ -76,6 +77,7 @@ class CourseManager extends React.Component{
 
                             <div className="col-3 	d-none d-lg-block">
                                 <h4>Course Manager</h4>
+
                             </div>
                             <div className="col-10 col-lg-7">
                                 <input
