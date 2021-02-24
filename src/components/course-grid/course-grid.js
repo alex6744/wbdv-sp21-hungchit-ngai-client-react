@@ -10,7 +10,7 @@ const CourseGrid=({courses,deleteCourse,updateCourse})=>
             <div className="col-5 d-none d-md-block">
                 Recent Documents
             </div>
-            <div className="col-4 d-none d-md-block">
+            <div className="col-4 d-none d-md-block  position-owner">
                 Owned by me
                 <i className="fas fa-sort-down fa-2x "></i>
 
