@@ -1,13 +1,4 @@
-.position-grid{
 
-
-}
-.position-sort{
-
-}
-.position-floder{
-
-}
 .position-check{
     position: absolute;
     top: 10px;
@@ -21,3 +12,7 @@
      right: 10px;
      color:red;
  }
+.position-owner{
+    position: relative;
+    bottom: 10px;
+}
