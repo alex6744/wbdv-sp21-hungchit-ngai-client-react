@@ -22,13 +22,13 @@ const ModuleList = (
             <h2>Modules</h2>
             <ul className="list-group">
                 {
-                    myModules.map(module =>
-                        <li className="list-group-item ">
+                    myModules.map((module )=>
+                        <li className={`list-group-item ${module._id === moduleId ? 'active' : ''}`}>
                             <EditableItem
                                 to={`/courses/${layout}/edit/${courseId}/modules/${module._id}`}
                                 updateItem={updateModule}
                                 deleteItem={deleteModule}
-
+                                active={true}
                                 item={module}/>
                         </li>
                     )
@@ -37,6 +37,7 @@ const ModuleList = (
                     <i onClick={() => createModule(courseId)} className="fas fa-plus fa-2x"></i>
                 </li>
             </ul>
+
         </div>)}
 
 const stpm = (state) => {
