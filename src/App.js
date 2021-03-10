@@ -3,6 +3,7 @@ import CourseManager from "./components/course-manager";
 import './App.css';
 import {BrowserRouter,Route} from "react-router-dom";
 import Home from "./components/home"
+import CourseEditor from "./components/course-editor/course-editor";
 
 
 function App() {
@@ -12,10 +13,13 @@ function App() {
                 <Route path="/" exact={true}>
                     <Home/>
                 </Route>
-                <Route path="/courses">
+                <Route path="/courses/:layout" exact={true} >
                     <CourseManager/>
                 </Route>
+                <Route path="/courses/editor"
+                       render={(props) => <CourseEditor {...props}/>}>
 
+                </Route>
             </div>
         </BrowserRouter>
     );
