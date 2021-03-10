@@ -25,7 +25,7 @@ const CourseCard=({course,deleteCourse,updateCourse})=>{
                 <img src={``}/>
                 {
                     !editing &&
-                    <Link to="/courses/editor" className="btn btn-primary">
+                    <Link to={`/courses/table/edit/${course._id}`} className="btn btn-primary">
                         {course.title}
                     </Link>
                 }
