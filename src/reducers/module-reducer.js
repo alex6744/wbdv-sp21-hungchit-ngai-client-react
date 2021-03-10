@@ -1,17 +1,50 @@
 const intitialState={
     modules:[
-        {title: "Module 123"},
-        {title: "Module 234"},
-        { title: "Module 345"}
+
     ]
 }
 
 const moduleReducer =(state=intitialState,action)=>{
     switch (action.type) {
         case "CREATE_MODULE":
-        case "FIND_MODULES_FOR_COURSE":
-        case "UPDATE_MODULE":
+            // const newModule = {
+            //     title: "New Module",
+            //     _id: (new Date()).getTime()
+            // }
+            return {
+                ...state,
+                modules: [
+                    ...state.modules,
+                    action.module
+                ]
+            }
         case "DELETE_MODULE":
+            return {
+                ...state,
+                modules: state.modules.filter(module => {
+                    if(module._id !== action.moduleToDelete._id) {
+                        return true
+                    } else {
+                        return false
+                    }
+                })
+            }
+        case "UPDATE_MODULE":
+            return {
+                ...state,
+                modules: state.modules.map(module => {
+                    if(module._id === action.updateModule._id) {
+                        return action.updateModule
+                    } else {
+                        return module
+                    }
+                })
+            }
+        case "FIND_MODULES_FOR_COURSE":
+            return {
+                ...state,
+                modules: action.modules
+            }
         default:
             return state
     }
