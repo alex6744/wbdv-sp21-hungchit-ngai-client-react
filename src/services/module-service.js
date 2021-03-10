@@ -1,7 +1,7 @@
-const COURSES_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/courses/";
-const MODULES_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/modules/";
+const COURSES_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/courses";
+const MODULES_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/modules";
 
-export const creatModule=(courseId,module)=>
+export const createModule=(courseId,module)=>
     fetch(`${COURSES_URL}/${courseId}/modules`, {
         method: "POST",
         body: JSON.stringify(module),
@@ -35,6 +35,6 @@ export const deleteModule=(moduleId)=>
 
 
 const api={
-    creatModule,findModulesForCourse,updateModule,deleteModule
+    createModule,findModulesForCourse,updateModule,deleteModule
 };
 export default api;

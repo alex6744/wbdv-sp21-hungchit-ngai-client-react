@@ -1,5 +1,5 @@
-const LESSONS_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/lessons/";
-const MODULES_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/modules/";
+const LESSONS_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/lessons";
+const MODULES_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/modules";
 
 export const createLesson=(moduleId,lesson)=>
     fetch(`${MODULES_URL}/${moduleId}/lessons`, {

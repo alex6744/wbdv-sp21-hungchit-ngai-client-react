@@ -1,5 +1,5 @@
-const LESSONS_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/lessons/";
-const TOPIC_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/topics/";
+const LESSONS_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/lessons";
+const TOPIC_URL="https://wbdv-generic-server.herokuapp.com/api/001501828/topics";
 
 export const createTopic=(lessonId,topic)=>
     fetch(`${LESSONS_URL}/${lessonId}/topics`, {
