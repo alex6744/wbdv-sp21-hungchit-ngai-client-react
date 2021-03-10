@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import {Link,useParams} from "react-router-dom";
 import ModuleList from "./module-list";
 import {combineReducers, createStore} from "redux";
@@ -7,6 +7,7 @@ import lessonReducer from "../../reducers/lesson-reducer";
 import topicReducer from "../../reducers/topic-reducer";
 import {Provider} from "react-redux";
 import LessonTabs from "./lesson-tabs";
+import courseService from "../../services/course-service";
 
 
 const reducer=combineReducers({
@@ -16,10 +17,13 @@ const reducer=combineReducers({
 
 })
 const store=createStore(reducer)
-const CourseEditor =({history,state})=> {
+const CourseEditor =({history,component})=> {
     const {layout,courseId, moduleId} =useParams();
+    const a=courseService.findAllCourses()
+
 
     return(
+
         <Provider store={store}>
             <div className="container-fluid">
 
@@ -34,13 +38,8 @@ const CourseEditor =({history,state})=> {
                         </div>
                         <div className="col-3  ">
 
-                            <i  onClick={() => {
 
-                                console.log(history)
-                            }
-                            }
-                                className="fa fa-times"></i>
-                            <h4 >CS5610-WebDev</h4>
+                            <h4 >CS 5610</h4>
 
                         </div>
                         <div className="col-7">
