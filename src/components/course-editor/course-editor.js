@@ -17,7 +17,8 @@ const reducer=combineReducers({
 })
 const store=createStore(reducer)
 const CourseEditor =({history})=> {
-    const {courseId, moduleId} =useParams();
+    const {layout,courseId, moduleId} =useParams();
+
     return(
         <Provider store={store}>
             <div className="container-fluid">
@@ -26,9 +27,9 @@ const CourseEditor =({history})=> {
                     <div className="row ">
                         <div className="col-1">
 
-                            <i onClick={() => {
+                            <i onClick={() =>
                                 history.goBack()
-                            }}
+                            }
                                className=" fa fa-times fa-2x "
                                title="go back last page"></i>
 
@@ -36,11 +37,12 @@ const CourseEditor =({history})=> {
                         <div className="col-3  ">
 
 
-                            <h4 className="color-white ">CS5610-WebDev</h4>
+                            <h4 >CS5610-WebDev</h4>
 
                         </div>
                         <div className="col-7">
-                            Course :{courseId} Module: {moduleId}
+                            Course :{courseId} Module: {moduleId} layout:{layout}
+
                         </div>
 
                     </div>
