@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom";
+import {Link,useParams} from "react-router-dom";
 import ModuleList from "./module-list";
 import {combineReducers, createStore} from "redux";
 import moduleReducer from "../../reducers/module-reducer";
@@ -16,42 +16,48 @@ const reducer=combineReducers({
 
 })
 const store=createStore(reducer)
-const CourseEditor =({history})=>
-    <Provider store={store}>
-        <div className="container-fluid">
+const CourseEditor =({history})=> {
+    const {courseId, moduleId} =useParams();
+    return(
+        <Provider store={store}>
+            <div className="container-fluid">
 
-            <div>
-                <div className="row ">
-                    <div className="col-1">
+                <div>
+                    <div className="row ">
+                        <div className="col-1">
 
-                            <i onClick={() => {history.goBack()}}
-                                className=" fa fa-times fa-2x color-white"
-                                title="go back last page"></i>
+                            <i onClick={() => {
+                                history.goBack()
+                            }}
+                               className=" fa fa-times fa-2x "
+                               title="go back last page"></i>
+
+                        </div>
+                        <div className="col-3  ">
+
+
+                            <h4 className="color-white ">CS5610-WebDev</h4>
+
+                        </div>
+                        <div className="col-7">
+                            Course :{courseId} Module: {moduleId}
+                        </div>
 
                     </div>
-                    <div className="col-3  ">
+                </div>
+                <div className="row">
+                    <div className="col-4">
 
-
-                        <h4 className="color-white ">CS5610-WebDev</h4>
-
-                    </div>
-                    <div className="col-7">
-
+                        <ModuleList/>
                     </div>
 
+                    <div className="col-8">
+
+                        <LessonTabs/>
+                    </div>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-4">
-
-                    <ModuleList/>
-                </div>
-
-                <div className="col-8">
-
-                    <LessonTabs/>
-                </div>
-            </div>
-        </div>
-    </Provider>
+        </Provider>
+    )
+}
 export default CourseEditor
