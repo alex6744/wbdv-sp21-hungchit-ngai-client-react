@@ -1,5 +1,7 @@
 const intitialState={
-    lessons:[]
+    lessons:[ {title: "lesson 123"},
+        {title: "lesson 234"},
+        { title: "lesson 345"}]
 }
 
 const lessonReducer =(state=intitialState,action)=>{

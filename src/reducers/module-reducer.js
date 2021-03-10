@@ -1,5 +1,9 @@
 const intitialState={
-    modules:[]
+    modules:[
+        {title: "Module 123"},
+        {title: "Module 234"},
+        { title: "Module 345"}
+    ]
 }
 
 const moduleReducer =(state=intitialState,action)=>{
