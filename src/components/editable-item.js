@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
-
+import "./course-editor/course-editor.css"
 const EditableItem = (
     {
         to,
@@ -16,7 +16,7 @@ const EditableItem = (
             {
                 !editing &&
                 <>
-                    <Link to={to} className={`nav-link ${active?'active':''}`}>
+                    <Link to={to} className={`nav-link ${active?'active  color-black':''}`}>
                         {item.title}
                     </Link>
                     <i onClick={() => {
