@@ -22,24 +22,29 @@ const LessonTabs = (
     return(
         <div>
 
+
+                <ul className="nav nav-pills">
+                    {
+                        lessons.map(lesson =>
+                            <li className="nav-item">
+                                <EditableItem
+                                    active={lesson._id === lessonId}
+                                    to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
+                                    item={lesson}
+                                    updateItem={updateLesson}
+                                    deleteItem={deleteLesson}/>
+                            </li>
+                        )
+                    }
+                    <li>
+
+                        <i onClick={() => createLesson(moduleId)} className="fas fa-plus"></i>
+                    </li>
+                </ul>
+
             <ul className="nav nav-pills">
-                {
-                    lessons.map(lesson =>
-                        <li className="nav-item">
-                            <EditableItem
-                                active={lesson._id === lessonId}
-                                to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lesson._id}`}
-                                item={lesson}
-                                updateItem={updateLesson}
-                                deleteItem={deleteLesson}/>
-                        </li>
-                    )
-                }
-                <li >
-                    <i onClick={() => createLesson(moduleId)} className="fas fa-plus"></i>
-                </li>
+                 <TopicPills/>
             </ul>
-            <TopicPills/>
         </div>)}
 
 const stpm = (state) => ({

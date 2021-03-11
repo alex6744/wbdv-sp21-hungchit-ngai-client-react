@@ -28,9 +28,9 @@ const CourseRow = (
             <td>
                 {
                     !editing &&
-                    <Link to={`/courses/table/edit/${course._id}`} >
+                    <a href={`/courses/table/edit/${course._id}`} >
                         {title}
-                    </Link>
+                    </a>
                 }
                 {
                     editing &&
