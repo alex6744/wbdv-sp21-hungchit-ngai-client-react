@@ -31,7 +31,7 @@ export const updateCourse = (courseId, course) =>
     })
         .then(response => response.json())
 
-export const findCourseById=(courseId)=> {
+export const findCourseById=(courseId)=>
     fetch(`${COURSES_URL}/${courseId}`)
         .then(response => response.json())
     // let course={}
@@ -43,7 +43,7 @@ export const findCourseById=(courseId)=> {
     // course.filter(function (x) {
     //     return x._id!== courseId})
     // console.log(course)
-}
+
     // fetch(`${COURSES_URL}/${courseId}`, {
     //     method: 'GET',
     //     body: JSON.stringify(course),
