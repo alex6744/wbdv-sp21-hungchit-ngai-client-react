@@ -19,7 +19,12 @@ const reducer=combineReducers({
 const store=createStore(reducer)
 const CourseEditor =({history,component})=> {
     const {layout,courseId, moduleId} =useParams();
-    const a=courseService.findAllCourses()
+    const [course,setCourse]=useState({});
+    useEffect(()=>{
+        courseService.findCourseById(courseId).then(course=>{
+            setCourse(course)
+        })
+    })
 
 
     return(
@@ -39,11 +44,11 @@ const CourseEditor =({history,component})=> {
                         <div className="col-3  ">
 
 
-                            <h4 >CS 5610</h4>
+                            <h4 >{course.title}</h4>
 
                         </div>
                         <div className="col-7">
-                            Course :{courseId} Module: {moduleId} layout:{layout}
+
 
                         </div>
 

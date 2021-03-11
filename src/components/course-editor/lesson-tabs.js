@@ -14,14 +14,14 @@ const LessonTabs = (
     }) => {
     const {courseId, moduleId, lessonId,layout} = useParams();
     useEffect(() => {
-        console.log("LOAD LESSONS FOR MODULE: " + moduleId)
+
         if(moduleId !== "undefined" && typeof moduleId !== "undefined") {
             findLessonsForModule(moduleId)
         }
     }, [moduleId])
     return(
         <div>
-            <h2>Lessons</h2>
+
             <ul className="nav nav-pills">
                 {
                     lessons.map(lesson =>
@@ -35,7 +35,7 @@ const LessonTabs = (
                         </li>
                     )
                 }
-                <li>
+                <li className="nav-item">
                     <i onClick={() => createLesson(moduleId)} className="fas fa-plus"></i>
                 </li>
             </ul>
