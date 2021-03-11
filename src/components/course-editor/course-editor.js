@@ -17,7 +17,7 @@ const reducer=combineReducers({
 
 })
 const store=createStore(reducer)
-const CourseEditor =({history,component})=> {
+const CourseEditor =({history})=> {
     const {layout,courseId, moduleId} =useParams();
     const [course,setCourse]=useState({});
     useEffect(()=>{
@@ -34,20 +34,20 @@ const CourseEditor =({history,component})=> {
 
                 <div>
                     <div className="row ">
-                        <div className="col-1">
+                        <div className="col-2 prev-page-position">
                             <Link to={`/courses/${layout}`}>
                                 <i
-                                   className=" fa fa-times fa-2x "
+                                   className=" fa fa-times fa-3x "
                                    title="go back last page"></i>
                             </Link>
                         </div>
-                        <div className="col-3  ">
+                        <div className="col-5  ">
 
 
-                            <h4 >{course.title}</h4>
+                            <h1  className="title-position">{course.title}</h1>
 
                         </div>
-                        <div className="col-7">
+                        <div className="col-5">
 
 
                         </div>

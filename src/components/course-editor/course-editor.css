@@ -1,3 +1,16 @@
 .color-black{
     color: black;
 }
+.prev-page-position{
+    position: relative;
+    top: 7px;
+    left: 8px;
+}
+.title-position{
+    position: relative;
+    left: 25px;
+}
+.plus-position{
+    position: relative;
+    left: 45%;
+}

@@ -35,7 +35,7 @@ const LessonTabs = (
                         </li>
                     )
                 }
-                <li className="nav-item">
+                <li >
                     <i onClick={() => createLesson(moduleId)} className="fas fa-plus"></i>
                 </li>
             </ul>
