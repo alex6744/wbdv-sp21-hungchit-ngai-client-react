@@ -39,5 +39,5 @@ export const deleteWidget=(wid)=>
 
 
 export default {
-    createTopic,findTopicsForLesson,updateTopic,deleteTopic
+    createWidget,findWidgetsForTopic,updateWidget,deleteWidget
 }
