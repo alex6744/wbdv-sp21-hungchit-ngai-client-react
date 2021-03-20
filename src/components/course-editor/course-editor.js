@@ -8,12 +8,14 @@ import topicReducer from "../../reducers/topic-reducer";
 import {Provider} from "react-redux";
 import LessonTabs from "./lesson-tabs";
 import courseService from "../../services/course-service";
+import widgetReducer from "../../reducers/widget-reducer";
 
 
 const reducer=combineReducers({
     moduleReducer:moduleReducer,
     lessonReducer:lessonReducer,
-    topicReducer:topicReducer
+    topicReducer:topicReducer,
+    widgetReducer:widgetReducer
 
 })
 const store=createStore(reducer)
