@@ -1,6 +1,20 @@
 import React from "react";
+import {connect} from 'react-redux'
 
 const WidgetList=()=>{
+    return(
+        <div>
 
+        </div>
+    )
 }
-export default WidgetList;
+const stpm=(state)=>{
+    return{
+        widgets:state.widgetReducer.widgets
+    }
+}
+
+const dtpm=(dispatch)=>({
+
+})
+export default connect(stpm,dtpm)(WidgetList) ;
