@@ -38,6 +38,7 @@ const WidgetList=(
                                 {
                                     widget.type==="HEADING"&&
                                     <HeadingWidget
+
                                         widget={widget}
                                         updateWidget={updateWidget}
                                         deleteWidget={deleteWidget}/>
@@ -45,6 +46,7 @@ const WidgetList=(
                                 {
                                     widget.type==="PARAGRAPH"&&
                                     <ParagraphWidget
+
                                         widget={widget}
                                         updateWidget={updateWidget}
                                         deleteWidget={deleteWidget}/>
