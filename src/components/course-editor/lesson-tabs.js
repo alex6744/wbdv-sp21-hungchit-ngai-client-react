@@ -4,6 +4,7 @@ import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
 import lessonService from '../../services/lesson-service'
 import TopicPills from "./topic-pills";
+import WidgetList from "../widgets/widget-list";
 const LessonTabs = (
     {
         lessons=[],
@@ -44,6 +45,9 @@ const LessonTabs = (
 
             <ul className="nav nav-pills">
                  <TopicPills/>
+            </ul>
+            <ul>
+                <WidgetList/>
             </ul>
         </div>)}
 

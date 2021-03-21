@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
 import topicService from '../../services/topic-service'
+import WidgetList from "../widgets/widget-list";
 
 const TopicPills = (
     {
@@ -49,6 +50,7 @@ const TopicPills = (
                     </li>
                 </ul>
             }
+
         </div>)}
 
 const stpm = (state) => ({
