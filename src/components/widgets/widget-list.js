@@ -19,12 +19,36 @@ const WidgetList=(
 
     return(
         <div>
-            <i className="fas fa-plus float-right"></i>
+            <i onClick={()=>createWidget(topicId)}
+               className="fas fa-plus float-right"></i>
             <h1>Widget</h1>
 
+                {
+                    widgets.map(widget=>
+                        <>
+                            {widget.id}
+                            {widget.type}
 
-            <HeadingWidget/>
-            <ParagraphWidget/>
+                            {
+                                widget.type==="HEADING"&&
+                                <HeadingWidget
+                                    widget={widget}
+                                    updateWidget={updateWidget}
+                                    deleteWidget={deleteWidget}/>
+                            }
+                            {
+                                widget.type==="PARAGRAPH"&&
+                                <ParagraphWidget
+                                    widget={widget}
+                                    updateWidget={updateWidget}
+                                    deleteWidget={deleteWidget}/>
+                            }
+                        </>
+                    )
+                }
+
+
+
         </div>
     )
 }
