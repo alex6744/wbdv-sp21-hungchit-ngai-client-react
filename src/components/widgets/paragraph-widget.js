@@ -25,7 +25,11 @@ const ParagraphWidget=({widget,updateWidget,deleteWidget})=> {
                               setEditing(false)
                               updateWidget(itemCache)
                           }}></i>
-                       <i className="fas fa-trash float-right"></i>
+                       <i className="fas fa-trash float-right"
+                          onClick={()=> { console.log(itemCache)
+                              setEditing(false)
+                              return deleteWidget(itemCache)
+                          }}></i>
                        <br/>
                        <select className="form-control"
                                onChange={(e) =>setItemCache({...itemCache, type: e.target.value})}
