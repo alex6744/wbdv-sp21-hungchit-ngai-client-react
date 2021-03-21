@@ -46,9 +46,7 @@ const LessonTabs = (
             <ul className="nav nav-pills">
                  <TopicPills/>
             </ul>
-            <ul>
-                <WidgetList/>
-            </ul>
+
         </div>)}
 
 const stpm = (state) => ({
