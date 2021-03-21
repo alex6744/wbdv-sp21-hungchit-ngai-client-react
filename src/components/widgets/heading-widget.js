@@ -3,8 +3,10 @@ import React,{useState} from 'react'
 const HeadingWidget=({widget,updateWidget,deleteWidget})=> {
     const [itemCache, setItemCache] = useState(widget)
     const [editing,setEditing]=useState(false)
+    const [title,setTitle]=useState(widget.name)
 
     const Heading="h"+widget.size;
+
 
 
 
@@ -19,7 +21,7 @@ const HeadingWidget=({widget,updateWidget,deleteWidget})=> {
                            setItemCache(widget)
                            setEditing(true)
                        }}></i>
-                     <Heading>{widget.name}</Heading>
+                     <Heading>{title}</Heading>
 
 
                 </li>
@@ -47,6 +49,7 @@ const HeadingWidget=({widget,updateWidget,deleteWidget})=> {
 
                             <select className="form-control"
                                     onChange={(e) =>{
+
                                         return setItemCache({...itemCache, type: e.target.value})
                                     }}>
                                 <option value="HEADING">Heading</option>
@@ -59,7 +62,11 @@ const HeadingWidget=({widget,updateWidget,deleteWidget})=> {
                             </select>
                             <input className="form-control"
                                     value={itemCache.name}
-                                    onChange={(e)=>setItemCache({...itemCache, name: e.target.value})}/>
+                                    onChange={(e)=>{
+                                        console.log(e.target.value)
+                                        setTitle(e.target.value)
+                                        setItemCache({...itemCache, name: e.target.value})
+                                    }}/>
                             <select className="form-control"
                                     value={itemCache.size}
                                     onChange={(e) =>setItemCache({...itemCache, size: e.target.value})}
