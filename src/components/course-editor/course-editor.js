@@ -9,6 +9,7 @@ import {Provider} from "react-redux";
 import LessonTabs from "./lesson-tabs";
 import courseService from "../../services/course-service";
 import widgetReducer from "../../reducers/widget-reducer";
+import WidgetList from "../widgets/widget-list";
 
 
 const reducer=combineReducers({
@@ -65,6 +66,11 @@ const CourseEditor =({history})=> {
                     <div className="col-8">
 
                         <LessonTabs/>
+
+
+
+                        <WidgetList/>
+
                     </div>
                 </div>
 
