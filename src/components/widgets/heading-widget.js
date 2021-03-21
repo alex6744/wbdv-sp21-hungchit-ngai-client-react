@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
 
-const HeadingWidget=({widget,updateWidget,deleteWidget})=> {
+const HeadingWidget=({widget,updateWidget,deleteWidget,isEdit,setIsEdit})=> {
     const [itemCache, setItemCache] = useState(widget)
-    const [editing,setEditing]=useState(false)
+    const [editing,setEditing]=useState(isEdit)
     const [title,setTitle]=useState(widget.name)
-
-    const Heading="h"+widget.size;
+    const [fontSize,setFontSize]=useState(widget.size)
+    const Heading="h"+fontSize;
 
 
 
@@ -48,10 +48,7 @@ const HeadingWidget=({widget,updateWidget,deleteWidget})=> {
 
 
                             <select className="form-control"
-                                    onChange={(e) =>{
-
-                                        return setItemCache({...itemCache, type: e.target.value})
-                                    }}>
+                                    onChange={(e) =>setItemCache({...itemCache, type: e.target.value})}>
                                 <option value="HEADING">Heading</option>
                                 <option value="PARAGRAPH">Paragraph</option>
                                 <option value="PARAGRAPH">Video</option>
@@ -63,13 +60,16 @@ const HeadingWidget=({widget,updateWidget,deleteWidget})=> {
                             <input className="form-control"
                                     value={itemCache.name}
                                     onChange={(e)=>{
-                                        console.log(e.target.value)
+
                                         setTitle(e.target.value)
                                         setItemCache({...itemCache, name: e.target.value})
                                     }}/>
                             <select className="form-control"
                                     value={itemCache.size}
-                                    onChange={(e) =>setItemCache({...itemCache, size: e.target.value})}
+                                    onChange={(e) =>{
+                                        setFontSize(e.target.value)
+                                        setItemCache({...itemCache, size: e.target.value})
+                                    }}
                                     >
 
                                 <option value={1}>Heading 1</option>
