@@ -26,7 +26,7 @@ const CourseEditor =({history})=> {
         courseService.findCourseById(courseId).then(course=>{
             setCourse(course)
         })
-    })
+    },[])
 
 
     return(
