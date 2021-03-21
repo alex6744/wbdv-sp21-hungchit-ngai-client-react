@@ -4,6 +4,7 @@ import widgetService from "../../services/widget-service"
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
 import {useParams} from "react-router-dom";
+import "./wiget.css"
 const WidgetList=(
     {
         widgets=[],
@@ -19,39 +20,47 @@ const WidgetList=(
 
     return(
         <div>
-            <i onClick={()=>createWidget(topicId)}
-               className="fas fa-plus float-right"></i>
-            <h1>Widget</h1>
-
-                {
-                    widgets.map(widget=>
-                        <>
-                            {widget.id}
-                            {widget.type}
-
-                            {
-                                widget.type==="HEADING"&&
-                                <HeadingWidget
-                                    widget={widget}
-                                    updateWidget={updateWidget}
-                                    deleteWidget={deleteWidget}/>
-                            }
-                            {
-                                widget.type==="PARAGRAPH"&&
-                                <ParagraphWidget
-                                    widget={widget}
-                                    updateWidget={updateWidget}
-                                    deleteWidget={deleteWidget}/>
-                            }
-                        </>
-                    )
-                }
+            <div className="container-fluid">
+                <div className="row ">
+                    <i onClick={()=>createWidget(topicId)}
+                       className="fas fa-plus fa-3x add-position"></i>
+                </div>
+            </div>
+            <div>
 
 
 
+                    {
+                        widgets.map(widget=>
+                            <>
+
+
+                                {
+                                    widget.type==="HEADING"&&
+                                    <HeadingWidget
+                                        widget={widget}
+                                        updateWidget={updateWidget}
+                                        deleteWidget={deleteWidget}/>
+                                }
+                                {
+                                    widget.type==="PARAGRAPH"&&
+                                    <ParagraphWidget
+                                        widget={widget}
+                                        updateWidget={updateWidget}
+                                        deleteWidget={deleteWidget}/>
+                                }
+                                <br/>
+                            </>
+                        )
+                    }
+
+
+
+            </div>
         </div>
     )
 }
+
 const stpm=(state)=>{
     return{
         widgets:state.widgetReducer.widgets
@@ -60,7 +69,7 @@ const stpm=(state)=>{
 
 const dtpm=(dispatch)=>({
     createWidget:(topicId)=>{
-        widgetService.createWidget(topicId,{name: "ABC123",type: "HEADING",size:1})
+        widgetService.createWidget(topicId,{name: "Heading not being edited",type: "HEADING",size:1,text:"Paragraph not being edited"})
             .then(widget=>dispatch({type:"CREATE_WIDGET",widget:widget}))
     },
     updateWidget:(newItem)=>{
@@ -68,7 +77,7 @@ const dtpm=(dispatch)=>({
             .then(status=>dispatch({type:"UPDATE_WIDGET",updateWidget:newItem}))
     },
     deleteWidget:(widgetToDelete)=>{
-        widgetService.deleteWidget(widgetToDelete)
+        widgetService.deleteWidget(widgetToDelete.id)
             .then(status=>dispatch({type:"DELETE_WIDGET", widgetToDelete:widgetToDelete}))
     },
     findWidgetsForTopic:(topicId)=>{
