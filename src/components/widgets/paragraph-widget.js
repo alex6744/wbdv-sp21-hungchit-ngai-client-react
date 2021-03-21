@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 const ParagraphWidget=({widget,updateWidget,deleteWidget})=> {
     const [itemCache,setItemCache]=useState(widget);
     const [editing,setEditing]=useState(false);
+    const [para,setPara]=useState(widget.text)
     return(
         <div>
            <ul className="list-group">
@@ -12,7 +13,7 @@ const ParagraphWidget=({widget,updateWidget,deleteWidget})=> {
                           setItemCache(widget)
                           setEditing(true)
                       }}></i>
-                   <p>{widget.text}</p>
+                   <p>{para}</p>
 
                </li>
 
@@ -32,7 +33,7 @@ const ParagraphWidget=({widget,updateWidget,deleteWidget})=> {
                           }}></i>
                        <br/>
                        <select className="form-control"
-                               onChange={(e) =>setItemCache({...itemCache, type: e.target.value})}
+                               onChange={(e) => setItemCache({...itemCache, type: e.target.value})}
                                value={itemCache.type}>
                            <option value="HEADING">Heading</option>
                            <option value="PARAGRAPH">Paragraph</option>
@@ -46,7 +47,10 @@ const ParagraphWidget=({widget,updateWidget,deleteWidget})=> {
                        <br/>
                        <textarea value={itemCache.text}
                                  className="form-control"
-                                 onChange={(e)=>setItemCache({...itemCache, text: e.target.value})}></textarea>
+                                 onChange={(e)=> {
+                                     setPara(e.target.value)
+                                     setItemCache({...itemCache, text: e.target.value})
+                                 }}></textarea>
                    </li>
                }
            </ul>
