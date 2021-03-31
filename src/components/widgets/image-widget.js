@@ -43,9 +43,9 @@ const ImageWidget =({widget, updateWidget, deleteWidget})=>{
                             <option value="HEADING">Heading</option>
                             <option value="PARAGRAPH">Paragraph</option>
                             <option value="PARAGRAPH">Video</option>
-                            <option value="IMAGE">Image</option>
+                            <option value="PARAGRAPH">Image</option>
                             <option value="PARAGRAPH">Link</option>
-                            <option value="LIST">List</option>
+                            <option value="PARAGRAPH">List</option>
                             <option value="PARAGRAPH">HTML</option>
                         </select>
 

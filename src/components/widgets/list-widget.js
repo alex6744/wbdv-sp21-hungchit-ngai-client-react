@@ -6,6 +6,7 @@ const ListWidget =({widget, updateWidget, deleteWidget})=> {
     const [text1, setText1] = useState(widget.text===null?"":widget.text)
     const [ordered, setOrdered] = useState(widget.widgetOrder)
 
+
     return (
         <div>
 
