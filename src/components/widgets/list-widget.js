@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 const ListWidget =({widget, updateWidget, deleteWidget})=> {
     const [itemCache, setItemCache] = useState(widget)
     const [editing, setEditing] = useState(false)
-    const [text1, setText1] = useState(widget.text)
+    const [text1, setText1] = useState(widget.text===null?"":widget.text)
     const [ordered, setOrdered] = useState(widget.widgetOrder)
 
     return (
