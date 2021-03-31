@@ -5,6 +5,8 @@ import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
 import {useParams} from "react-router-dom";
 import "./wiget.css"
+import ImageWidget from "./image-widget";
+import ListWidget from "./list-widget";
 const WidgetList=(
     {
         widgets=[],
@@ -51,6 +53,22 @@ const WidgetList=(
                                         updateWidget={updateWidget}
                                         deleteWidget={deleteWidget}/>
                                 }
+                                {
+                                    widget.type==="IMAGE"&&
+                                    <ImageWidget
+
+                                        widget={widget}
+                                        updateWidget={updateWidget}
+                                        deleteWidget={deleteWidget}/>
+                                }
+                                {
+                                    widget.type==="LIST"&&
+                                    <ListWidget
+
+                                        widget={widget}
+                                        updateWidget={updateWidget}
+                                        deleteWidget={deleteWidget}/>
+                                }
                                 <br/>
                             </>
                         )
@@ -71,7 +89,7 @@ const stpm=(state)=>{
 
 const dtpm=(dispatch)=>({
     createWidget:(topicId)=>{
-        widgetService.createWidget(topicId,{name: "Heading not being edited",type: "HEADING",size:1,text:"Paragraph not being edited"})
+        widgetService.createWidget(topicId,{type: "HEADING",size:1,widgetOrder:0})
             .then(widget=>dispatch({type:"CREATE_WIDGET",widget:widget}))
     },
     updateWidget:(newItem)=>{
