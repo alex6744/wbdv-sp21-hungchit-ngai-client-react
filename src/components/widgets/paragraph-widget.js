@@ -13,8 +13,14 @@ const ParagraphWidget=({widget,updateWidget,deleteWidget})=> {
                           setItemCache(widget)
                           setEditing(true)
                       }}></i>
-                   <p>{para}</p>
-
+                   {
+                        para!==null&&
+                       <p>{para}</p>
+                   }
+                   {
+                       para===null&&
+                       <p>paragraph not being edited</p>
+                   }
                </li>
 
                {
@@ -38,14 +44,15 @@ const ParagraphWidget=({widget,updateWidget,deleteWidget})=> {
                            <option value="HEADING">Heading</option>
                            <option value="PARAGRAPH">Paragraph</option>
                            <option value="PARAGRAPH">Video</option>
-                           <option value="PARAGRAPH">Image</option>
+                           <option value="IMAGE">Image</option>
                            <option value="PARAGRAPH">Link</option>
-                           <option value="PARAGRAPH">List</option>
+                           <option value="LIST">List</option>
                            <option value="PARAGRAPH">HTML</option>
                        </select>
 
                        <br/>
-                       <textarea value={itemCache.text}
+                       <textarea placeholder="paragraph not being edited"
+                                 value={itemCache.text}
                                  className="form-control"
                                  onChange={(e)=> {
                                      setPara(e.target.value)
