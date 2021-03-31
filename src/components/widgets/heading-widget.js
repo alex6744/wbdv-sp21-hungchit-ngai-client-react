@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 
 const HeadingWidget=({widget,updateWidget,deleteWidget,isEdit,setIsEdit})=> {
     const [itemCache, setItemCache] = useState(widget)
-    const [editing,setEditing]=useState(isEdit)
-    const [title,setTitle]=useState(widget.name)
+    const [editing,setEditing]=useState(false)
+    const [text,setText]=useState(widget.text)
     const [fontSize,setFontSize]=useState(widget.size)
     const Heading="h"+fontSize;
 
@@ -21,7 +21,16 @@ const HeadingWidget=({widget,updateWidget,deleteWidget,isEdit,setIsEdit})=> {
                            setItemCache(widget)
                            setEditing(true)
                        }}></i>
-                     <Heading>{title}</Heading>
+                    {
+                            text!==null &&
+                            <Heading>{text}</Heading>
+
+                    }
+                    {
+                        text===null &&
+                        <Heading>Heading not being edited</Heading>
+
+                    }
 
 
                 </li>
@@ -36,8 +45,9 @@ const HeadingWidget=({widget,updateWidget,deleteWidget,isEdit,setIsEdit})=> {
                             <>
                                 <i className="fas fa-check float-right"
                                     onClick={()=>{
+                                        console.log(itemCache)
                                         setEditing(false)
-                                        updateWidget(itemCache)
+                                         updateWidget(itemCache)
                                     }}></i>
                                 <i className="fas fa-trash float-right"
                                     onClick={()=> { console.log(itemCache)
@@ -52,17 +62,18 @@ const HeadingWidget=({widget,updateWidget,deleteWidget,isEdit,setIsEdit})=> {
                                 <option value="HEADING">Heading</option>
                                 <option value="PARAGRAPH">Paragraph</option>
                                 <option value="PARAGRAPH">Video</option>
-                                <option value="PARAGRAPH">Image</option>
+                                <option value="IMAGE">Image</option>
                                 <option value="PARAGRAPH">Link</option>
-                                <option value="PARAGRAPH">List</option>
+                                <option value="LIST">List</option>
                                 <option value="PARAGRAPH">HTML</option>
                             </select>
-                            <input className="form-control"
-                                    value={itemCache.name}
+                            <input  placeholder="Heading not being edited"
+                                    className="form-control"
+                                    value={itemCache.text}
                                     onChange={(e)=>{
 
-                                        setTitle(e.target.value)
-                                        setItemCache({...itemCache, name: e.target.value})
+                                        setText(e.target.value)
+                                        setItemCache({...itemCache, text: e.target.value})
                                     }}/>
                             <select className="form-control"
                                     value={itemCache.size}
