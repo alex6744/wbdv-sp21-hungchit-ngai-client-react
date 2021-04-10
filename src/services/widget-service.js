@@ -1,8 +1,8 @@
-// const WIDGET_URL="https://hungchit-ngai.herokuapp.com/api/widgets";
-// const TOPIC_URL="https://hungchit-ngai.herokuapp.com/api/topics";
+const WIDGET_URL="https://hungchit-ngai.herokuapp.com/api/widgets";
+const TOPIC_URL="https://hungchit-ngai.herokuapp.com/api/topics";
 
-const WIDGET_URL="http://localhost:8080/api/widgets";
-const TOPIC_URL="http://localhost:8080/api/topics";
+// const WIDGET_URL="http://localhost:8080/api/widgets";
+// const TOPIC_URL="http://localhost:8080/api/topics";
 
 
 export const createWidget=(tid,widget)=>
