@@ -1,7 +1,8 @@
 import React,{useState} from "react";
-
+import "./questions.css"
 const TrueFalseQuestion=({question})=>{
-    const [answer,setAnswer]=useState(null)
+    const [yourAnswer,setYourAnswer]=useState("")
+    const [graded,setGraded]=useState(false)
     return(
 
         <div>
@@ -9,24 +10,77 @@ const TrueFalseQuestion=({question})=>{
 
             <h4>{question.question}
                 {
-                    answer===question.correct &&
-                    <i className="fas fa-check"></i>
+                    yourAnswer==question.correct && graded &&
+                    <i className="fas fa-check float-right color-green"></i>
                 }
+
                 {
-                    answer!==question.correct &&<i className="fas fa-times"></i>
+                    yourAnswer!=question.correct && graded &&
+                    <i className="fas fa-times float-right color-red"></i>
                 }
 
             </h4>
-            {question.correct}
 
             <br/>
-            {JSON.stringify(answer)}
+            <ul className="list-group">
+                <li className={`list-group-item 
+                ${graded?(question.correct==='true'?'list-group-item-success':'')||
+                    (yourAnswer==='true')&&(question.correct==='true'?'':'list-group-item-danger')
+                    :''}`}>
+                    <label><input onClick={()=>setYourAnswer("true")}
+                                  type="radio"
+                                  name={question._id}
+                                  disabled={`${graded?'disabled':''}`}/>
+                        True
+                    </label>
+                    {
+                        graded&&question.correct==="true"&&
+                        <i className="fas fa-check float-right"></i>
+
+                    }
+                    {
+                        graded&&question.correct!=="true"&&yourAnswer==="true"&&
+                        <i className="fas fa-times float-right"></i>
+                    }
+                </li>
+                <li className={`list-group-item 
+                ${graded?(question.correct==='false'?'list-group-item-success':'')||
+                    (yourAnswer==='false')&&(question.correct==='false'?'':'list-group-item-danger')
+                    :''}`}>
+                    <label><input onClick={()=>setYourAnswer("false")}
+                                  type="radio"
+                                  name={question._id}
+                                  disabled={`${graded?'disabled':''}`}/>
+                                  False
+                    </label>
+                    {
+                        graded&&question.correct==="false"&&
+                        <i className="fas fa-check float-right"></i>
+
+                    }
+                    {
+                        graded&&question.correct!=="false"&&yourAnswer==="false"&&
+                        <i className="fas fa-times float-right"></i>
+                    }
+                </li>
+
+
+            </ul>
+
             <br/>
-            <label><input onClick={()=>setAnswer(true)}
-                type="radio" name={question._id}/>True</label>
-            <br/>
-            <label><input onClick={()=>setAnswer(false)}
-                type="radio"name={question._id}/>False</label>
+            <p>Your answer: {yourAnswer}</p>
+
+
+            <button className="btn btn-success"
+                    onClick={()=> {
+                        if(yourAnswer===""){
+                            alert("please choice an answer" )
+                        }else {
+                            setGraded(true)
+                        }
+                    }}>
+                Grade
+            </button>
         </div>
     )
 }
