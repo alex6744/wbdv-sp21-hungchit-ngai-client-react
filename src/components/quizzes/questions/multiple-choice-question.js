@@ -1,30 +1,71 @@
-import React from "react";
-
+import React,{useState} from "react";
+import "./questions.css"
 const MultipleChoiceQuestion=({question})=>{
+    const [yourAnswer,setYourAnswer]=useState("")
+    const [graded,setGraded]=useState(false)
     return(
 
         <div>
-            <h4>{question.question}</h4>
-            <div className="list-group">
+            <h4>
+                {question.question}
+                {
+                    graded&&yourAnswer===question.correct&&
+                    <i className="fas fa-check float-right color-green"></i>
+                }
+                {
+                    graded&&yourAnswer!==question.correct&&
+                    <i className="fas fa-times float-right color-red"></i>
+                }
+            </h4>
+
+            <ul className="list-group">
+                <div onChange={(e)=>setYourAnswer(e.target.value)}>
                 {
                     question.choices.map((choice)=>{
                         return(
-                            <div className="list-group-item">
-                                <label><input type="radio" name={question._id}/>
-                                    {choice}
+                            <li className={`list-group-item 
+                            ${graded?(choice==question.correct?'list-group-item-success':'')||
+                                (yourAnswer===choice)&&(choice==question.correct?'':'list-group-item-danger')
+                                :''}
+                            `}>
 
-                                </label>
+                                    <label><input type="radio"
+                                                  value={choice}
+                                                  name={question._id}
+                                                  disabled={`${graded?'disabled':''}`}
+                                                  onClick={()=>setYourAnswer(choice)}/>
+                                        {choice}
 
-                            </div>
+                                    </label>
+
+                                {
+                                    graded&&choice===question.correct&&
+                                    <i className="fas fa-check float-right"></i>
+
+                                }
+                                {
+                                    graded&&choice!==question.correct&&yourAnswer===choice&&
+                                    <i className="fas fa-times float-right"></i>
+                                }
+                            </li>
 
                         )
                     })
                 }
-            </div>
+                </div>
+            </ul>
             <br/>
-            <h5>Your answer:</h5>
-            <br/>
-            <button className="btn btn-success">Grade</button>
+            <p>Your answer: {yourAnswer}</p>
+            <button className="btn btn-success"
+                    onClick={()=> {
+                        if(yourAnswer===""){
+                            alert("please choice an answer" )
+                        }else {
+                        setGraded(true)
+                        }
+                    }}>
+                Grade
+            </button>
         </div>
     )
 }
