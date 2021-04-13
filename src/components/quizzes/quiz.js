@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Question from "./questions/question";
 import quizService from "../../services/quizzes-service";
 import questionService from "../../services/questions-service";
@@ -16,7 +16,12 @@ const Quiz=()=>{
     },[])
     return(
         <div>
-            <h1>{quiz.title}</h1>
+            <h1>
+                {quiz.title}
+                <Link to={`/courses/${courseId}/quizzes`}>
+                    <i className="fas fa-times float-right "></i>
+                </Link>
+            </h1>
             <div className="list-group">
                 {
 

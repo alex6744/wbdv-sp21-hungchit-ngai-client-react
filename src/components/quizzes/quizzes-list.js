@@ -15,7 +15,13 @@ const QuizzesList=()=>{
     },[])
     return(
         <div>
-            <h1>Quizzes</h1>
+            <h1>
+                Quizzes
+                <Link to={`/courses/table`}>
+                    <i className="fas fa-home float-right "></i>
+                </Link>
+            </h1>
+
             <ul className="list-group">
                 {
                     quizzes.map((quiz)=>
