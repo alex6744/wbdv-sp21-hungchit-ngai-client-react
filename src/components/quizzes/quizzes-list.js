@@ -31,6 +31,9 @@ const QuizzesList=()=>{
 
                                     <button className="btn btn-primary float-right">start</button>
                                 </Link>
+                                <Link to={`/courses/${courseId}/quizzes/${quiz._id}/attempts`}>
+                                    <button className="float-right btn btn-danger">find your attempts</button>
+                                </Link>
 
                             </li>
 
