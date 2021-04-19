@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import "./questions.css"
-const TrueFalseQuestion=({question})=>{
+const TrueFalseQuestion=({question,attempt,setAttempt})=>{
     const [yourAnswer,setYourAnswer]=useState("")
     const [graded,setGraded]=useState(false)
     return(
@@ -71,12 +71,14 @@ const TrueFalseQuestion=({question})=>{
             <p>Your answer: {yourAnswer}</p>
 
 
+
             <button className="btn btn-success"
                     onClick={()=> {
                         if(yourAnswer===""){
                             alert("please choice an answer" )
                         }else {
                             setGraded(true)
+                            setAttempt(old=>[...old,{...question, answer: yourAnswer}])
                         }
                     }}>
                 Grade

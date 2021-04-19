@@ -1,11 +1,12 @@
 import React,{useState} from "react";
 import "./questions.css"
-const MultipleChoiceQuestion=({question})=>{
+const MultipleChoiceQuestion=({question,attempt,setAttempt})=>{
     const [yourAnswer,setYourAnswer]=useState("")
     const [graded,setGraded]=useState(false)
     return(
 
         <div>
+
             <h4>
                 {question.question}
                 {
@@ -56,12 +57,14 @@ const MultipleChoiceQuestion=({question})=>{
             </ul>
             <br/>
             <p>Your answer: {yourAnswer}</p>
+
             <button className="btn btn-success"
                     onClick={()=> {
                         if(yourAnswer===""){
                             alert("please choice an answer" )
                         }else {
                         setGraded(true)
+                            setAttempt(old=>[...old,{...question, answer: yourAnswer}])
                         }
                     }}>
                 Grade
