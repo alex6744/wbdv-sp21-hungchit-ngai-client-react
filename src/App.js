@@ -6,6 +6,7 @@ import Home from "./components/home"
 import CourseEditor from "./components/course-editor/course-editor";
 import QuizzesList from "./components/quizzes/quizzes-list";
 import Quiz from "./components/quizzes/quiz";
+import AttemptsList from "./components/quizzes/attempts/attempts-list";
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
                 </Route>
                 <Route path="/courses/:courseId/quizzes/:quizId" exact={true}>
                     <Quiz/>
+                </Route>
+                <Route path="/courses/:courseId/quizzes/:quizId/attempts" exact={true}>
+                    <AttemptsList/>
                 </Route>
             </div>
         </BrowserRouter>
